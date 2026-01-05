@@ -2,6 +2,11 @@
 
 A complete transformer/attention architecture implemented from scratch using only Python and NumPy. No ML frameworks - every component (neurons, activations, backpropagation) is built from the ground up for educational purposes.
 
+## Documentation
+
+- **[WALKTHROUGH.md](WALKTHROUGH.md)** - Complete guide explaining the transformer architecture from first principles, with code references
+- **[ARCHITECTURE.md](ARCHITECTURE.md)** - Visual diagrams (Mermaid) showing component relationships and data flow
+
 ## Features
 
 - **From-scratch implementation**: Linear layers, LayerNorm, Embeddings, Positional Encoding
