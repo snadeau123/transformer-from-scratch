@@ -911,7 +911,9 @@ Accuracy: 97.5%
 
 Now that you understand the basics:
 1. Read the original paper: ["Attention Is All You Need"](https://arxiv.org/abs/1706.03762)
-2. Explore larger models: GPT, BERT, T5
+2. Explore tiny implementations:
+   - tinygpt (pure Python): https://github.com/isaacperez/tinygpt
+   - minGPT (PyTorch): https://github.com/karpathy/minGPT
 3. Try modifying this code: Add more layers, change dimensions, try different tasks
 
 The concepts here scale directly to models with billions of parameters!
