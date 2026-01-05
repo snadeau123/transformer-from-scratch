@@ -305,28 +305,29 @@ Word    | Query (what I want) | Key (what I have) | Value (my content)
 ```
 
 **Step 2: Compute scores** (Q × K^T)
+For simplicity, we'll skip the √d_k scaling here; it just rescales the numbers.
 ```
 Scores matrix (who attends to whom):
               "the"  "cat"  "sat"
-    "the"  [  0.74,  0.18,  0.38 ]   ← "the" mostly attends to itself
-    "cat"  [  0.27,  0.74,  0.58 ]   ← "cat" attends to itself and "sat"
-    "sat"  [  0.43,  0.62,  0.54 ]   ← "sat" attends to "cat"
+    "the"  [  0.74,  0.32,  0.44 ]   ← "the" mostly attends to itself
+    "cat"  [  0.18,  0.74,  0.58 ]   ← "cat" attends to itself and "sat"
+    "sat"  [  0.34,  0.62,  0.54 ]   ← "sat" attends to "cat"
 ```
 
 **Step 3: Apply softmax** (convert to probabilities)
 ```
 Attention weights (rows sum to 1):
               "the"  "cat"  "sat"
-    "the"  [  0.52,  0.18,  0.30 ]
-    "cat"  [  0.22,  0.45,  0.33 ]
-    "sat"  [  0.28,  0.38,  0.34 ]
+    "the"  [  0.42,  0.27,  0.31 ]
+    "cat"  [  0.24,  0.41,  0.35 ]
+    "sat"  [  0.28,  0.37,  0.34 ]
 ```
 
 **Step 4: Weighted sum of values**
 ```
-Output for "cat" = 0.22 × V_the + 0.45 × V_cat + 0.33 × V_sat
-                 = 0.22 × [0.5, 0.3] + 0.45 × [0.7, 0.4] + 0.33 × [0.2, 0.9]
-                 = [0.49, 0.54]
+Output for "cat" = 0.24 × V_the + 0.41 × V_cat + 0.35 × V_sat
+                 = 0.24 × [0.5, 0.3] + 0.41 × [0.7, 0.4] + 0.35 × [0.2, 0.9]
+                 = [0.48, 0.55]
 ```
 
 The output for "cat" is now a blend of all words, weighted by relevance!
